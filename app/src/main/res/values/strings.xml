@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Amorzinho</string>
+
+    <!-- Mensagens de amor -->
+    <string-array name="love_messages">
+        <item>Você é o amor da minha vida!</item>
+        <item>Meu coração é seu para sempre</item>
+        <item>Cada dia ao seu lado é especial</item>
+        <item>Você me faz completo(a)</item>
+        <item>Nada se compara ao seu sorriso</item>
+    </string-array>
+
+    <!-- Perguntas para o quiz -->
+    <string-array name="quiz_questions">
+        <item>Qual foi nosso primeiro encontro?</item>
+        <item>Qual é minha comida favorita?</item>
+    </string-array>
+
+    <!-- Respostas (opcionais) -->
+    <string-array name="quiz_answers">
+        <item>Cinema</item>
+        <item>Pizza</item>
+    </string-array>
+</resources>
