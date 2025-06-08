@@ -23,16 +23,16 @@ class TimelineFragment : Fragment(R.layout.activity_fragment_timeline) {
             Memory(
                 "Ligações",
                 "2021",
-                "Passamos a entrar em call todos os dias. Ficávamos até altas horas, sempre com um assunto diferente. "
-                        + "Lembro que eu morria de vergonha de ligações, mas com você parecia que tudo se encaixava com facilidade."
+                "Passamos a entrar em call todos os dias. Ficávamos até altas horas, sempre com um assunto diferente. " +
+                        "Lembro que eu morria de vergonha de ligações, mas com você parecia que tudo se encaixava com facilidade."
             ),
             Memory(
                 "Primeiro Encontro",
                 "25/04/2021",
-                "Lembro que aceitei ir com minha amiga pra Tambaú só pra te ver. "
-                        + "Eu tava super nervosa, e meu WhatsApp ainda não ajudou te, "
-                        + "enviando a localização de outro país kkkkk. "
-                        + "Mas assim que começamos a conversar, o nervosismo passou."
+                "Lembro que aceitei ir com minha amiga pra Tambaú só pra te ver. " +
+                        "Eu tava super nervosa, e meu WhatsApp ainda não ajudou te, " +
+                        "enviando a localização de outro país kkkkk. " +
+                        "Mas assim que começamos a conversar, o nervosismo passou."
             ),
             Memory(
                 "Sua primeira vez em casa",
@@ -90,6 +90,7 @@ class TimelineFragment : Fragment(R.layout.activity_fragment_timeline) {
 
         val recyclerView: RecyclerView = view.findViewById(R.id.timelineRecycler)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = TimelineAdapter(timelineEvents)
+
+        recyclerView.adapter = TimelineAdapter(timelineEvents, requireContext())
     }
 }

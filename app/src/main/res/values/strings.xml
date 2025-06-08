@@ -14,11 +14,43 @@
     <string-array name="quiz_questions">
         <item>Qual foi nosso primeiro encontro?</item>
         <item>Qual é minha comida favorita?</item>
+        <item>Onde nos beijamos pela primeira vez?</item>
+        <item>Qual meu filme preferido?</item>
     </string-array>
 
-    <!-- Respostas (opcionais) -->
-    <string-array name="quiz_answers">
+    <string-array name="quiz_options_1">
         <item>Cinema</item>
+        <item>Shopping</item>
+        <item>Praia</item>
+    </string-array>
+
+    <string-array name="quiz_options_2">
         <item>Pizza</item>
+        <item>Sushi</item>
+        <item>Hambúrguer</item>
+    </string-array>
+
+    <string-array name="quiz_options_3">
+        <item>No carro</item>
+        <item>Em casa</item>
+        <item>No parque</item>
+    </string-array>
+
+    <string-array name="quiz_options_4">
+        <item>Interestelar</item>
+        <item>Harry Potter</item>
+        <item>Vingadores</item>
+    </string-array>
+
+    <string-array name="correct_messages">
+        <item>Acho bom mesmo ter acertado! ❤️</item>
+        <item>Acertou em cheio! Te amo 😘</item>
+        <item>Boaa amor! 💕</item>
+    </string-array>
+
+    <string-array name="wrong_messages">
+        <item>Não creio que errou isso não </item>
+        <item>Ops! Vou te dar mais uma chance pq sou boazinha 💖</item>
+        <item>EU VOU TE BATER 😊</item>
     </string-array>
 </resources>

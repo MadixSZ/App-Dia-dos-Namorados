@@ -1,35 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/quizContainer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <!-- Progresso -->
         <TextView
-            android:id="@+id/question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
-            android:text="Pergunta do Quiz"
-            android:textSize="18sp"/>
-
-        <EditText
-            android:id="@+id/answer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="Sua resposta"/>
-
-        <Button
-            android:id="@+id/submitBtn"
+            android:id="@+id/progressText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Enviar Resposta" />
+            android:layout_gravity="end"
+            android:text="1/10"
+            android:textColor="@color/purple_500"
+            android:textSize="16sp"/>
 
+        <!-- Pergunta -->
+        <TextView
+            android:id="@+id/questionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:text="Pergunta aqui?"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <!-- Opções -->
+        <RadioGroup
+            android:id="@+id/optionsGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/option1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:padding="16dp"
+                android:background="@drawable/option_background"
+                android:button="@null"
+                android:text="Opção 1"
+                android:textColor="@color/option_text"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/option2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:padding="16dp"
+                android:background="@drawable/option_background"
+                android:button="@null"
+                android:text="Opção 2"
+                android:textColor="@color/option_text"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/option3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@drawable/option_background"
+                android:button="@null"
+                android:text="Opção 3"
+                android:textColor="@color/option_text"
+                android:textSize="18sp"/>
+        </RadioGroup>
+
+        <!-- Mensagem de feedback -->
+        <TextView
+            android:id="@+id/feedbackText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/purple_700"
+            android:textSize="18sp"
+            android:visibility="invisible"/>
+
+        <!-- Botão de próxima pergunta -->
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/purple_500"
+            android:text="Próxima"
+            android:textColor="@color/white"
+            android:visibility="invisible"/>
     </LinearLayout>
-</ScrollView>
+</FrameLayout>

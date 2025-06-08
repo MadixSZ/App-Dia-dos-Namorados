@@ -12,22 +12,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Amorzinho"
         tools:targetApi="31">
-
-        <!-- TELA INICIAL (HOME) -->
+        <activity
+            android:name=".quiz_result"
+            android:exported="false" />
+        <activity
+            android:name=".option_background"
+            android:exported="false" />
+        <activity
+            android:name=".slide_in_right"
+            android:exported="false" />
+        <activity
+            android:name=".divider_timeline"
+            android:exported="false" />
+        <activity
+            android:name=".circle_purple"
+            android:exported="false" /> <!-- TELA INICIAL (HOME) -->
         <activity
             android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- ACTIVITY PRINCIPAL COM AS ABAS -->
+        </activity> <!-- ACTIVITY PRINCIPAL COM AS ABAS -->
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>
