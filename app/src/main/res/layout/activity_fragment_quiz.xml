@@ -3,8 +3,8 @@
     android:id="@+id/quizContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:padding="16dp">
+    android:background="@drawable/fundoquiz"
+    android:padding="24dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,8 +18,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:text="1/10"
-            android:textColor="@color/purple_500"
-            android:textSize="16sp"/>
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
         <!-- Pergunta -->
         <TextView
@@ -31,8 +32,9 @@
             android:text="Pergunta aqui?"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"/>
 
         <!-- Opções -->
         <RadioGroup
@@ -45,25 +47,27 @@
                 android:id="@+id/option1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="12dp"
                 android:padding="16dp"
                 android:background="@drawable/option_background"
                 android:button="@null"
                 android:text="Opção 1"
                 android:textColor="@color/option_text"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:elevation="2dp"/>
 
             <RadioButton
                 android:id="@+id/option2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="12dp"
                 android:padding="16dp"
                 android:background="@drawable/option_background"
                 android:button="@null"
                 android:text="Opção 2"
                 android:textColor="@color/option_text"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:elevation="2dp"/>
 
             <RadioButton
                 android:id="@+id/option3"
@@ -74,31 +78,35 @@
                 android:button="@null"
                 android:text="Opção 3"
                 android:textColor="@color/option_text"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:elevation="2dp"/>
         </RadioGroup>
 
-        <!-- Mensagem de feedback -->
+        <!-- Feedback -->
         <TextView
             android:id="@+id/feedbackText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:gravity="center"
             android:text=""
             android:textColor="@color/purple_700"
             android:textSize="18sp"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:textStyle="italic"/>
 
-        <!-- Botão de próxima pergunta -->
+        <!-- Botão próxima -->
         <Button
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            android:backgroundTint="@color/purple_500"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
             android:text="Próxima"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
+            android:elevation="4dp"
             android:visibility="invisible"/>
     </LinearLayout>
 </FrameLayout>

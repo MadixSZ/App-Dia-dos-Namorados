@@ -1,45 +1,53 @@
 <resources>
     <string name="app_name">Amorzinho</string>
 
-    <!-- Mensagens de amor -->
+    <!-- Mensagens -->
     <string-array name="love_messages">
-        <item>Você é o amor da minha vida!</item>
-        <item>Meu coração é seu para sempre</item>
-        <item>Cada dia ao seu lado é especial</item>
-        <item>Você me faz completo(a)</item>
-        <item>Nada se compara ao seu sorriso</item>
+        <item>Supimpa</item>
+        <item>"Era isso oh - Pluumm"</item>
+        <item>Te amo mesmo sendo ruim no jenga</item>
+        <item>To com sdds</item>
+        <item>Eu adoro seu sorriso</item>
+        <item>Eu adoro seu sorriso</item>
+        <item>Meu Duo no Fortnite</item>
+        <item>Você torna minha vida melhor</item>
+        <item>Te amo muitão</item>
+        <item>Se essa frase apareceu, seu cu é meu!</item>
+        <item>O menino que me fez assistir o filme Internet</item>
+        <item>Amo ouvir você animado falando suas coisas nerds</item>
     </string-array>
 
     <!-- Perguntas para o quiz -->
     <string-array name="quiz_questions">
-        <item>Qual foi nosso primeiro encontro?</item>
+        <item>Onde nos vimos pessoalmente pela primeira vez?</item>
         <item>Qual é minha comida favorita?</item>
-        <item>Onde nos beijamos pela primeira vez?</item>
-        <item>Qual meu filme preferido?</item>
+        <item>Na lista que você fez a primeira vez que foi em casa, qual era a exigência se eu
+            não cumprisse?</item>
+        <item>Qual meu anime preferido?</item>
     </string-array>
 
     <string-array name="quiz_options_1">
-        <item>Cinema</item>
-        <item>Shopping</item>
-        <item>Praia</item>
+        <item>Rodoviária</item>
+        <item>Minha casa</item>
+        <item>Praça</item>
     </string-array>
 
     <string-array name="quiz_options_2">
         <item>Pizza</item>
-        <item>Sushi</item>
-        <item>Hambúrguer</item>
+        <item>Sorvete</item>
+        <item>Lanche</item>
     </string-array>
 
     <string-array name="quiz_options_3">
-        <item>No carro</item>
-        <item>Em casa</item>
-        <item>No parque</item>
+        <item>Te dar um beijo</item>
+        <item>Comer comida Japonesa</item>
+        <item>Assistir ao anime que você acompanhava na época</item>
     </string-array>
 
     <string-array name="quiz_options_4">
-        <item>Interestelar</item>
-        <item>Harry Potter</item>
-        <item>Vingadores</item>
+        <item>One Piece</item>
+        <item>Ao Haru Ride</item>
+        <item>Fullmetal Alchemist</item>
     </string-array>
 
     <string-array name="correct_messages">

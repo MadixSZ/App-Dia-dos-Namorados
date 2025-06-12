@@ -10,4 +10,5 @@
     <color name="option_text">#444444</color>
     <color name="correct_green">#4CAF50</color>
     <color name="wrong_red">#F44336</color>
+    <color name="rosa">#FD54E9</color>
 </resources>
