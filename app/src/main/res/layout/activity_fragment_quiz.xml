@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/quizContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fundoquiz"
     android:padding="24dp">
 
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/activity_ic_arrow_back"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_margin="16dp"/>
+
+    <!-- Layout do Quiz (visível durante as perguntas) -->
     <LinearLayout
+        android:id="@+id/quizContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <!-- Progresso -->
         <TextView
@@ -20,28 +32,30 @@
             android:text="1/10"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
         <!-- Pergunta -->
         <TextView
             android:id="@+id/questionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="24dp"
             android:text="Pergunta aqui?"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
+            android:textColor="@color/purple_700"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:letterSpacing="0.05"/>
+            android:lineSpacingExtra="4dp"/>
 
         <!-- Opções -->
         <RadioGroup
             android:id="@+id/optionsGroup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <RadioButton
                 android:id="@+id/option1"
@@ -82,31 +96,91 @@
                 android:elevation="2dp"/>
         </RadioGroup>
 
-        <!-- Feedback -->
-        <TextView
-            android:id="@+id/feedbackText"
+        <!-- Feedback e Botão Próxima -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@color/purple_700"
-            android:textSize="18sp"
-            android:visibility="invisible"
-            android:textStyle="italic"/>
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="16dp">
 
-        <!-- Botão próxima -->
-        <Button
-            android:id="@+id/nextButton"
+            <TextView
+                android:id="@+id/feedbackText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/purple_700"
+                android:textSize="18sp"
+                android:visibility="invisible"
+                android:textStyle="italic"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Próxima"
+                android:paddingHorizontal="32dp"
+                android:paddingVertical="12dp"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/purple_500"
+                android:elevation="4dp"
+                android:visibility="invisible"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Layout de Resultado (inicialmente invisível) -->
+    <LinearLayout
+        android:id="@+id/resultContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        android:padding="32dp">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="24dp"
-            android:paddingHorizontal="32dp"
+            android:text="Resultado"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:letterSpacing="0.05"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8/10"
+            android:textSize="52sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/messageText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mensagem personalizada aqui"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="32dp"/>
+
+        <Button
+            android:id="@+id/playAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jogar Novamente"
+            android:paddingHorizontal="24dp"
             android:paddingVertical="12dp"
-            android:text="Próxima"
+            android:backgroundTint="@color/rosa"
             android:textColor="@android:color/white"
-            android:elevation="4dp"
-            android:visibility="invisible"/>
+            android:layout_marginTop="8dp"
+            android:elevation="4dp"/>
     </LinearLayout>
 </FrameLayout>

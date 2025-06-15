@@ -19,12 +19,17 @@ import com.example.amorzinho.models.Question
 
 class QuizFragment : Fragment() {
 
-    private lateinit var quizContainer: View
+    private lateinit var quizContent: View
+    private lateinit var resultContent: View
     private lateinit var questionText: TextView
     private lateinit var optionsGroup: RadioGroup
     private lateinit var feedbackText: TextView
     private lateinit var nextButton: Button
     private lateinit var progressText: TextView
+    private lateinit var resultText: TextView
+    private lateinit var messageText: TextView
+    private lateinit var playAgainButton: Button
+    private lateinit var quizContainer: View
 
     private val questions = mutableListOf<Question>()
     private var currentQuestionIndex = 0
@@ -44,11 +49,16 @@ class QuizFragment : Fragment() {
 
         // Inicializar views
         quizContainer = view.findViewById(R.id.quizContainer)
+        quizContent = view.findViewById(R.id.quizContent)
+        resultContent = view.findViewById(R.id.resultContent)
         questionText = view.findViewById(R.id.questionText)
         optionsGroup = view.findViewById(R.id.optionsGroup)
         feedbackText = view.findViewById(R.id.feedbackText)
         nextButton = view.findViewById(R.id.nextButton)
         progressText = view.findViewById(R.id.progressText)
+        resultText = view.findViewById(R.id.resultText)
+        messageText = view.findViewById(R.id.messageText)
+        playAgainButton = view.findViewById(R.id.playAgainButton)
 
         // Configurar perguntas
         setupQuestions()
@@ -78,14 +88,16 @@ class QuizFragment : Fragment() {
         nextButton.setOnClickListener {
             currentQuestionIndex++
             if (currentQuestionIndex < questions.size) {
-                optionsGroup.clearCheck()
-                answerSelected = false
-                feedbackText.visibility = View.INVISIBLE
-                nextButton.visibility = View.INVISIBLE
+                resetQuestionState()
                 showQuestion(questions[currentQuestionIndex])
             } else {
                 showFinalScore()
             }
+        }
+
+        // Botão para jogar novamente
+        playAgainButton.setOnClickListener {
+            restartQuiz()
         }
     }
 
@@ -114,13 +126,40 @@ class QuizFragment : Fragment() {
     private fun showQuestion(question: Question) {
         progressText.text = "${currentQuestionIndex + 1}/${questions.size}"
         questionText.text = question.text
+
+        // Resetar texto das opções
         (optionsGroup.getChildAt(0) as RadioButton).text = question.options[0]
         (optionsGroup.getChildAt(1) as RadioButton).text = question.options[1]
         (optionsGroup.getChildAt(2) as RadioButton).text = question.options[2]
-        quizContainer.setBackgroundColor(Color.WHITE)
+
+        // Restaurar aparência padrão
+        optionsGroup.isEnabled = true
+        optionsGroup.clearCheck()
+        setDefaultBackground()
         feedbackText.visibility = View.INVISIBLE
         nextButton.visibility = View.INVISIBLE
-        optionsGroup.isEnabled = true
+        answerSelected = false
+    }
+
+    private fun resetQuestionState() {
+        optionsGroup.clearCheck()
+        answerSelected = false
+        feedbackText.visibility = View.INVISIBLE
+        nextButton.visibility = View.INVISIBLE
+        setDefaultBackground()
+    }
+
+    private fun setDefaultBackground() {
+        try {
+            // Usar recurso drawable diretamente
+            quizContainer.setBackgroundResource(R.drawable.fundoquiz)
+        } catch (e: Exception) {
+            // Fallback para cor sólida
+            quizContainer.setBackgroundColor(
+                ContextCompat.getColor(requireContext(), R.color.purple_200)
+            )
+            Log.e("QuizFragment", "Erro ao carregar fundo padrão", e)
+        }
     }
 
     private fun checkAnswer(selectedIndex: Int, correctIndex: Int) {
@@ -129,17 +168,27 @@ class QuizFragment : Fragment() {
         val correctMessages = resources.getStringArray(R.array.correct_messages)
         val wrongMessages = resources.getStringArray(R.array.wrong_messages)
 
-        val bgColor = try {
-            if (isCorrect) {
+        // Definir imagem de fundo usando recursos drawable
+        try {
+            val backgroundRes = if (isCorrect) {
+                R.drawable.fundo_acerto // Imagem para acerto
+            } else {
+                R.drawable.fundo_erro   // Imagem para erro
+            }
+
+            quizContainer.setBackgroundResource(backgroundRes)
+        } catch (e: Exception) {
+            // Fallback para cores sólidas
+            val bgColor = if (isCorrect) {
                 ContextCompat.getColor(requireContext(), R.color.correct_green)
             } else {
                 ContextCompat.getColor(requireContext(), R.color.wrong_red)
             }
-        } catch (e: Exception) {
-            if (isCorrect) Color.GREEN else Color.RED
+
+            quizContainer.setBackgroundColor(bgColor)
+            Log.e("QuizFragment", "Erro ao carregar fundo de resposta", e)
         }
 
-        quizContainer.setBackgroundColor(bgColor)
         feedbackText.text = if (isCorrect) {
             correctMessages.random()
         } else {
@@ -156,15 +205,8 @@ class QuizFragment : Fragment() {
     }
 
     private fun showFinalScore() {
-        val inflater = layoutInflater
-        val resultView = inflater.inflate(R.layout.quiz_result, null)
-
-        val container = view?.findViewById<ViewGroup>(R.id.quizContainer)
-        container?.removeAllViews()
-        container?.addView(resultView)
-
-        val resultText = resultView.findViewById<TextView>(R.id.resultText)
-        val messageText = resultView.findViewById<TextView>(R.id.messageText)
+        quizContent.visibility = View.GONE
+        resultContent.visibility = View.VISIBLE
 
         resultText.text = "$score/${questions.size}"
 
@@ -176,12 +218,18 @@ class QuizFragment : Fragment() {
             else -> "EU VOU TE BATEEER!!!!"
         }
 
-        resultView.findViewById<Button>(R.id.playAgainButton).setOnClickListener {
-            currentQuestionIndex = 0
-            score = 0
-            container?.removeAllViews()
-            container?.addView(view)
-            showQuestion(questions[currentQuestionIndex])
-        }
+        // Restaurar fundo padrão para o resultado
+        setDefaultBackground()
+    }
+
+    private fun restartQuiz() {
+        currentQuestionIndex = 0
+        score = 0
+
+        quizContent.visibility = View.VISIBLE
+        resultContent.visibility = View.GONE
+
+        resetQuestionState()
+        showQuestion(questions[currentQuestionIndex])
     }
 }

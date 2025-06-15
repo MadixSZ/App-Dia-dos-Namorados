@@ -14,11 +14,13 @@ class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> QuizFragment()
+            0 -> QuizFragment().apply {
+                // Adicione argumentos se necessário
+            }
             1 -> TimelineFragment()
             2 -> GalleryFragment()
             3 -> LoveFragment()
             else -> throw IllegalArgumentException("Invalid position: $position")
-        } as Fragment
+        }
     }
 }

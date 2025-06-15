@@ -56,6 +56,7 @@
             android:gravity="center"
             android:layout_marginBottom="24dp">
 
+            <!-- CORREÇÃO: IDs devem ser @+id -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_quiz"
                 android:layout_width="0dp"

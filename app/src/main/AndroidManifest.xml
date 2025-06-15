@@ -13,20 +13,10 @@
         android:theme="@style/Theme.Amorzinho"
         tools:targetApi="31">
         <activity
-            android:name=".quiz_result"
-            android:exported="false" />
-        <activity
-            android:name=".option_background"
-            android:exported="false" />
-        <activity
-            android:name=".slide_in_right"
-            android:exported="false" />
-        <activity
-            android:name=".divider_timeline"
-            android:exported="false" />
-        <activity
-            android:name=".circle_purple"
-            android:exported="false" /> <!-- TELA INICIAL (HOME) -->
+            android:name=".ic_arrow_back"
+            android:exported="false"
+            android:theme="@style/Theme.Amorzinho" />
+        <!-- TELA INICIAL (HOME) -->
         <activity
             android:name=".HomeActivity"
             android:exported="true">
@@ -38,7 +28,8 @@
         </activity> <!-- ACTIVITY PRINCIPAL COM AS ABAS -->
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/Theme.Amorzinho" />
     </application>
 
 </manifest>
